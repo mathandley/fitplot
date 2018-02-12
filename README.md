@@ -125,6 +125,12 @@ up with any of this in the first place?).
 - It doesn't matter if you run fitplot on the same data twice, the year-to-date 
 file doesn't store duplicate entries.
 
+# How I'm using it
+Now I've set a static location for my output, I've copied the bash file to
+`usr/local/bin` and made it executable. I now just run `fitplot.sh` from 
+my downloads directory when I export an *Activities* report from the FitBit 
+Dashboard. The script deletes the csv file so it leaves everything tidy.
+
 # Linux/Unix users
 I hope it's largely compatible, but I assume some of it won't be.
 
