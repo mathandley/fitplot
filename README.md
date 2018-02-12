@@ -91,8 +91,34 @@ file, make sure it's a valid *Activities* report exported from the FitBit
 Dashboard. *Don't* run it on a Body/Foods/Sleep report by accident like I did, 
 because the output is weird and you'll mess up the year-to-date csv file. If you 
 have accidentally run fitplot on the wrong csv file, you get *one* chance to 
-restore your previous data from the `.csv.old` file it creates in the output
+restore your previous data from the `.old` file it creates in the output
 directory (i.e., the working directory if you've not modified the script).
+
+# Changing the appearance of graphs
+- Purple sucks!
+- Why does each data point have its value stuck on top?
+- That y-data should be plotted on a logarithmic scale goodness me.
+
+Graphs are a personal thing, I know...
+
+I've tried to make it as easy as possible for people to modify the appearance of
+graphs by breaking down the gnuplots into components. The variables below 
+correspond to the year-to-date calories burned graph. `calsTitle` is the
+title of the graph. `calsGoal` is the purple rectangle representing the goal.
+`calsLines` is the line connecting each data point. `calsPoints` is the set of
+data points themselves along with their labels. `calsMean` is the black mean 
+line. Anyone wishing to change the appearance of the graph thus need only 
+change/remove/add individual components. Ultimately some knowledge of bash and 
+gnuplot is required, but StackOverflow has the answers (how do you think I came 
+up with any of this in the first place?).
+
+```bash
+193: calsTitle="Calories Burned $year"
+194: calsGoal=..
+195: calsLines=..
+196: calsPoints=..
+197: calsMean=..
+```
 
 # Miscellaneous
 - The script will delete the input csv file when it is executed.
