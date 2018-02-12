@@ -107,12 +107,7 @@ correspond to the year-to-date calories burned graph. `calsTitle` is the
 title of the graph. `calsGoal` is the purple rectangle representing the goal.
 `calsLines` is the line connecting each data point. `calsPoints` is the set of
 data points themselves along with their labels. `calsMean` is the black mean 
-line. 
-
-Anyone wishing to change the appearance of graphs thus need only 
-change/remove/add individual components. Ultimately some knowledge of bash and 
-gnuplot is required, but StackOverflow has the answers (how do you think I came 
-up with any of this in the first place?).
+line:
 
 ```bash
 193: calsTitle="Calories Burned $year"
@@ -121,6 +116,12 @@ up with any of this in the first place?).
 196: calsPoints=..
 197: calsMean=..
 ```
+
+
+Anyone wishing to change the appearance of graphs thus need only 
+change/remove/add individual components. Ultimately some knowledge of bash and 
+gnuplot is required, but StackOverflow has the answers (how do you think I came 
+up with any of this in the first place?).
 
 ## Changing the size of graphs
 To change the size of the graphs, amend the following lines:
