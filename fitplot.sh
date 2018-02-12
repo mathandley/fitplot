@@ -150,6 +150,9 @@ ytd()
   cat $tmpFP > $yearOut
   rm $tmpFP
 
+  # Make one backup before adding new values
+  $yearOut > $yearOut".old"
+
   # Project information from input file.
   # Date range.
   minDate=$(gawk 'BEGIN{FS=" "} {print $1}' $yearOut | head -1)             

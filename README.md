@@ -3,9 +3,9 @@
 Plot your FitBit data!
 
 # What does it do?
-It's a bash script for plotting FitBit Activities data exported from the FitBit 
-Dashboard. It uses gawk/sed to clean the raw data from FitBit and gnuplot to 
-plot the graphs.
+fitplot is a bash script for plotting FitBit Activities data exported from the 
+FitBit Dashboard. It uses gawk/sed to clean the raw data from FitBit and gnuplot 
+to plot the graphs.
 
 # What I'm using it with
 
@@ -17,12 +17,13 @@ plot the graphs.
 | Software | gawk 4.2.0, gnuplot 5.2 patchlevel 2, other built-in tools e.g., sed, cat etc. |
 
 # How do you use it?
-(1) Export an *Activities* report from https://www.fitbit.com/export/user/data *as 
-a csv*:
+(1) Export an Activities report from https://www.fitbit.com/export/user/data as 
+a csv. You can export up to 31 days of data at any one time. Selecting "Last 
+month" is, therefore, a good place to start: 
 
 <img src="Images/export.png" width="700">
 
-(2) Execute fitplot on the downloaded csv file like so:
+(2) Execute fitplot on the downloaded csv file:
 
 ```bash
 ./fitplot fitbit_export_20180212.csv
@@ -32,30 +33,33 @@ a csv*:
 travelled. If you haven't modified the bash file, these will be saved in 
 your working directory.
 
-![calories](Images/calories.png =250x)
+<img src="Images/calories.png" width="700">
 
-![steps](Images/steps.png =250x)
+<img src="Images/steps.png" width="700">
 
-![distance](Images/distance.png =250x)
+<img src="Images/distance.png" width="700">
 
-Each graph plots the data points, their mean value and a goal value, which you 
-can set yourself.
+Graphs include *mean* and *goal* values. The mean value is plotted as a black 
+line and the top of the purple filled rectangle is the goal. For example, in 
+the calories graph above, my goal is 3042 kcal/day, and my average for January 
+was 2930 kcal/day. Goal values can be changed inside the script (see later).
 
-(BONUS) The script also generates a csv file containing year-to-date data, which 
-is updated each time you run fitplot on a monthly report. You can then plot 
-year-to-date graphs like so:
+# Bonus
+The script also generates a csv file containing year-to-date data, which 
+is updated each time you run fitplot on an exported csv file. You can plot 
+year-to-date graphs using the `ytd` flag:
 
 ```bash
 ./fitplot --ytd
 ```
 
-Three graphs will be generated: calories burned, steps taken, distance 
-travelled. But this time they display year-to-date data:
+The same three graphs will be generated, but this time they display year-to-date 
+data:
 
-![calories_ytd](Images/calories_ytd.png =250x)
+<img src="Images/calories.png" width="700">
 
 # How can I set my goals?
-Just edit the following variables in the script:
+Edit the following variables in the script:
 
 ```bash
 4: goalCals=3042    # kcal
@@ -64,11 +68,9 @@ Just edit the following variables in the script:
 ```
 
 # Additional settings
-The script needs a location to store output graphs and store/access the 
-year-to-date csv file. I've set that to the cd *temporarily* but it's probably 
-better to change it to a static location because the year-to-date csv needs to 
-be read back in by the script when the --ytd flag is specified. Change the 
-filepath by amending this variable:
+The script needs a location to store output graphs and to maintain the 
+year-to-date csv file. I've set that to the working directory temporarily but 
+please change it to a static location by amending the following variable:
 
 ```bash
 13: outFP="./" 
@@ -76,29 +78,54 @@ filepath by amending this variable:
 
 The script also makes use of a single temporary file, which can be named anything
 you like so long as it's accessible. The temporary file is used when 
-copying/sorting/making sense of the questionable csv formatting from FitBit.
-Change the filepath by amending this variable:
+copying/sorting/making sense of the questionable csv formatting offered by
+FitBit. Change the filepath if you wish by amending the following variable:
+
 ```bash
 11: tmpFP="./fitplot.tmp" 
 ```
 
-# Misc.
-- The csv file passed as an argument is deleted when the script is run.
+# Safety checks/validation
+The script has practically no safety checking, so if you run fitplot on a csv 
+file, make sure it's a valid *Activities* report exported from the FitBit 
+Dashboard. *Don't* run it on a Body/Foods/Sleep report by accident like I did, 
+because the output is weird and you'll mess up the year-to-date csv file. If you 
+have accidentally run fitplot on the wrong csv file, you get *one* chance to 
+restore your previous data from the `.csv.old` file it creates in the output
+directory (i.e., the working directory if you've not modified the script).
+
+# Miscellaneous
+- The script will delete the input csv file when it is executed.
 - It doesn't matter if you run fitplot on the same data twice, the year-to-date 
-file doesn't store duplicates.
-- It has *minimal* safety checking, so if you run fitplot on a csv file, make 
-sure it's a valid *Activities* report exported from the FitBit Dashboard. Don't 
-run it on a Body/Foods/Sleep report by accident like I did, because the output
-is weird.
+file doesn't store duplicate entries.
 
 # Linux/Unix users
-I hope it's largely compatible. I assume some of it won't be? 
+I hope it's largely compatible, but I assume some of it won't be.
 
 # Windows users
-??
+Hopefully someone else can turn this into a Window's executable.
 
 # Questions/reviews
-Nice comments to martin.handley@nottingham.ac.uk please :)
+Feedback to martin.handley@nottingham.ac.uk :)
+
+# Disclaimer
+Don't blame me for anything, especially if you're peeved at the shape of the
+graphs :D.
+
+DISCLAIMER OF WARRANTY
+
+The Software is provided "AS IS" and "WITH ALL FAULTS," without warranty of any 
+kind, including without limitation the warranties of merchantability, fitness 
+for a particular purpose and non-infringement. The Licensor makes no warranty 
+that the Software is free of defects or is suitable for any particular purpose. 
+In no event shall the Licensor be responsible for loss or damages arising from 
+the installation or use of the Software, including but not limited to any 
+indirect, punitive, special, incidental or consequential damages of any character 
+including, without limitation, damages for loss of goodwill, work stoppage, 
+computer failure or malfunction, or any and all other commercial damages or 
+losses. The entire risk as to the quality and performance of the Software is 
+borne by you. Should the Software prove defective, you and not the Licensor 
+assume the entire cost of any service and repair.
 
 
 
