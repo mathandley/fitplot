@@ -1,4 +1,23 @@
 
+# Martin A.T. Handley
+# fitplot - Plot your FitBit data!
+# 12/02/2018
+
+# DISCLAIMER OF WARRANTY
+
+# The Software is provided "AS IS" and "WITH ALL FAULTS," without warranty of any 
+# kind, including without limitation the warranties of merchantability, fitness 
+# for a particular purpose and non-infringement. The Licensor makes no warranty 
+# that the Software is free of defects or is suitable for any particular purpose. 
+# In no event shall the Licensor be responsible for loss or damages arising from 
+# the installation or use of the Software, including but not limited to any 
+# indirect, punitive, special, incidental or consequential damages of any character 
+# including, without limitation, damages for loss of goodwill, work stoppage, 
+# computer failure or malfunction, or any and all other commercial damages or 
+# losses. The entire risk as to the quality and performance of the Software is 
+# borne by you. Should the Software prove defective, you and not the Licensor 
+# assume the entire cost of any service and repair.
+
 # Settings ---------------------------------------------------------------------
 
 # User goals.
@@ -10,7 +29,7 @@ goalDistance=5   # km
 # Needed when cleaning up the raw data from FitBit and appending monthly data to yearly data.
 tmpFP="./fitplot.tmp" 
 # Output data/graphs stored in this folder.
-outFP="/Users/martinathandley/Documents/Coding/FitBit/Output/"         
+outFP="./"         
 
 # Constants.
 dates=( ["10#01"]="January" ["10#02"]="February" ["10#03"]="March" 
@@ -131,6 +150,7 @@ ytd()
 {
   year=$(date +"%Y")
   yearOut=$outFP$year".csv"
+  yearOld=$outFP$year".old"
 
   # Check year-to-date file exists.
   if [ ! -f $yearOut ]
@@ -150,8 +170,8 @@ ytd()
   cat $tmpFP > $yearOut
   rm $tmpFP
 
-  # Make one backup before adding new values
-  $yearOut > $yearOut".old"
+  # Make one backup before adding new values.
+  cat $yearOut > $yearOld
 
   # Project information from input file.
   # Date range.
