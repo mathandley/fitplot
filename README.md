@@ -1,9 +1,11 @@
 
-# fitplot
+# fitplot 0.0.1
+Plot your FitBit data!
 
 # What does it do?
 It's a bash script for plotting FitBit Activities data exported from the FitBit 
-Dashboard.
+Dashboard. It uses gawk/sed to clean the raw data from FitBit and gnuplot to 
+plot the graphs.
 
 # What I'm using it with
 
@@ -18,7 +20,7 @@ Dashboard.
 (1) Export an *Activities* report from https://www.fitbit.com/export/user/data *as 
 a csv*:
 
-![export](Images/export.png)
+![export](Images/export.png =250x)
 
 (2) Execute fitplot on the downloaded csv file like so:
 
@@ -27,13 +29,14 @@ a csv*:
 ```
 
 (3) Three graphs will be generated: calories burned, steps taken, distance 
-travelled.
+travelled. If you haven't modified the bash file, these will be saved in 
+your working directory.
 
-![calories](Images/calories.png)
+![calories](Images/calories.png =250x)
 
-![steps](Images/steps.png)
+![steps](Images/steps.png =250x)
 
-![distance](Images/distance.png)
+![distance](Images/distance.png =250x)
 
 Each graph plots the data points, their mean value and a goal value, which you 
 can set yourself.
@@ -49,7 +52,7 @@ year-to-date graphs like so:
 Three graphs will be generated: calories burned, steps taken, distance 
 travelled. But this time they display year-to-date data:
 
-![calories_ytd](Images/calories_ytd.png)
+![calories_ytd](Images/calories_ytd.png =250x)
 
 # How can I set my goals?
 Just edit the following variables in the script:
