@@ -2,14 +2,14 @@
 # fitplot
 
 # What does it do?
-It's a bash script for plotting FitBit activity data exported from the FitBit 
+It's a bash script for plotting FitBit Activities data exported from the FitBit 
 Dashboard.
 
 # What I'm using it with
-| Hardware | MacBook Pro 2017
-| OS       | MacOS High Sierra 10.13.2
-| Terminal | Oh-My-Zsh 5.3
-| Software | gawk 4.2.0, gnuplot 5.2 patchlevel 2, other built-in tools e.g., sed, cat etc.
+| Hardware | MacBook Pro 2017 |
+| OS       | MacOS High Sierra 10.13.2 |
+| Terminal | Oh-My-Zsh 5.3 |
+| Software | gawk 4.2.0, gnuplot 5.2 patchlevel 2, other built-in tools e.g., sed, cat etc. |
 
 # How do you use it?
 (1) Export an *Activities* report from https://www.fitbit.com/export/user/data *as 
