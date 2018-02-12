@@ -12,7 +12,7 @@ Dashboard.
 | Software | gawk 4.2.0, gnuplot 5.2 patchlevel 2, other built-in tools e.g., sed, cat etc.
 
 # How do you use it?
-(1) Export an *Activity* report from https://www.fitbit.com/export/user/data *as 
+(1) Export an *Activities* report from https://www.fitbit.com/export/user/data *as 
 a csv*:
 
 ![export](Images/export.png)
@@ -81,9 +81,9 @@ Change the filepath by amending this variable:
 - It doesn't matter if you run fitplot on the same data twice, the year-to-date 
 file doesn't store duplicates.
 - It has *minimal* safety checking, so if you run fitplot on a csv file, make 
-sure it's a valid *activity* report exported from the FitBit Dashboard. Don't 
-run it on a body/food/sleep report by accident like I did, because the output is 
-weird.
+sure it's a valid *Activities* report exported from the FitBit Dashboard. Don't 
+run it on a Body/Foods/Sleep report by accident like I did, because the output
+is weird.
 
 # Linux/Unix users
 I hope it's largely compatible. I assume some of it won't be? 
