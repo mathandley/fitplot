@@ -147,11 +147,9 @@ Now I've set a static location for my output, I've copied the bash file to
 my downloads directory when I export an *Activities* report from the FitBit 
 Dashboard. The script deletes the csv file so it leaves everything tidy.
 
-# Linux/Unix users
-I hope it's largely compatible, but I assume some of it won't be.
-
-# Windows users
-Hopefully someone else can turn this into a Window's executable.
+# Made for MacOS (because that's what I use)
+Linux/Unix users, I hope it's largely compatible, but I assume some of it won't 
+be. Hopefully someone else can turn this into a Window's executable too.
 
 # Questions/reviews
 Feedback to martin.handley@nottingham.ac.uk :)
