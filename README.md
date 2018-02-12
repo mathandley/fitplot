@@ -56,7 +56,7 @@ year-to-date graphs using the `ytd` flag:
 The same three graphs will be generated, but this time they display year-to-date 
 data:
 
-<img src="Images/calories.png" width="700">
+<img src="Images/calories_ytd.png" width="700">
 
 # How can I set my goals?
 Edit the following variables in the script:
