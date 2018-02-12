@@ -20,7 +20,7 @@ plot the graphs.
 (1) Export an *Activities* report from https://www.fitbit.com/export/user/data *as 
 a csv*:
 
-<img src="Images/export.png" width="200">
+<img src="Images/export.png" width="400">
 
 (2) Execute fitplot on the downloaded csv file like so:
 
