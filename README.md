@@ -8,6 +8,7 @@ Dashboard.
 # What I'm using it with
 
 | Hardware | MacBook Pro 2017                                                               |
+|----------|--------------------------------------------------------------------------------|
 | OS       | MacOS High Sierra 10.13.2                                                      |
 | Terminal | Oh-My-Zsh 5.3                                                                  |
 | Software | gawk 4.2.0, gnuplot 5.2 patchlevel 2, other built-in tools e.g., sed, cat etc. |
