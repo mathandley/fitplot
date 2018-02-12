@@ -67,6 +67,13 @@ monthly()
   # Append monthly data to yearly data.
   year=$(date +"%Y")
   yearOut=$outFP$year".csv"
+  yearOld=$outFP$year".old"
+
+  # If previous year-to-date file exists, make one backup before appending new data.
+  if [ -f $yearOut ]
+    then cat $yearOut > $yearOld 
+  fi
+
   cat $1 >> $yearOut
   # Remove any duplicates and sort by date (by year, month, day).
   sort -u -b -k 1.7,1.10 -k 1.4,1.5 -k 1.1,1.2 $yearOut > $tmpFP
@@ -150,7 +157,6 @@ ytd()
 {
   year=$(date +"%Y")
   yearOut=$outFP$year".csv"
-  yearOld=$outFP$year".old"
 
   # Check year-to-date file exists.
   if [ ! -f $yearOut ]
@@ -169,9 +175,6 @@ ytd()
   sort -b -k 1.7,1.10 -k 1.4,1.5 -k 1.1,1.2 $yearOut > $tmpFP
   cat $tmpFP > $yearOut
   rm $tmpFP
-
-  # Make one backup before adding new values.
-  cat $yearOut > $yearOld
 
   # Project information from input file.
   # Date range.
