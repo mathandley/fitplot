@@ -107,7 +107,9 @@ correspond to the year-to-date calories burned graph. `calsTitle` is the
 title of the graph. `calsGoal` is the purple rectangle representing the goal.
 `calsLines` is the line connecting each data point. `calsPoints` is the set of
 data points themselves along with their labels. `calsMean` is the black mean 
-line. Anyone wishing to change the appearance of the graph thus need only 
+line. 
+
+Anyone wishing to change the appearance of graphs thus need only 
 change/remove/add individual components. Ultimately some knowledge of bash and 
 gnuplot is required, but StackOverflow has the answers (how do you think I came 
 up with any of this in the first place?).
@@ -119,6 +121,20 @@ up with any of this in the first place?).
 196: calsPoints=..
 197: calsMean=..
 ```
+
+# Changing the size of graphs
+To change the size of the graphs, amend the following lines:
+
+```bash
+125: set terminal png size 1680,1050  # size of monthly graphs
+218: set terminal png size 1680,1050  # size of year-to-date graphs
+```
+
+At this point I have kept the monthly and year-to-date plotting implementations 
+separate even though they are largely comparable. This is because I don't know 
+how the year-to-date graphs will scale as more data is added. I presume the 
+implementation will need altering in a month or two, so abstracting out 
+functionality at this point is probably not the right move.
 
 # Miscellaneous
 - The script will delete the input csv file when it is executed.
