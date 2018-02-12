@@ -68,7 +68,7 @@ monthly()
   distanceGraphOut=$outFP"Distance_"$month"_"$year".png"
 
   # Calculate monthly averages.
-  read -r meanCals meanSteps meanDistance <<<$(awk 'BEGIN{FS=" "} \
+  read -r meanCals meanSteps meanDistance <<<$(gawk 'BEGIN{FS=" "} \
    NR>1{totCals+=$2; totSteps+=$3; totDistance+=$4} END{print totCals/(NR-1) \
    " " totSteps/(NR-1) " " totDistance/(NR-1)}' $1)
 
