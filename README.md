@@ -153,12 +153,12 @@ Dashboard. The script deletes the csv file so it leaves everything tidy.
 Please open an issues report if you're unsure of something/would like new 
 features/have found a bug.
 
-# Known Issues
+## Known Issues
 If users import monthly data spanning two separate years, e.g., mid December 
 2017 to mid January 2018, the data will be put into the prior year's 
 (i.e., 2017) year-to-date file.
 
-# New features coming soon:
+## New features coming soon:
 - Active minutes per week/month
 
 ## Disclaimer
