@@ -1,6 +1,6 @@
 
 # fitplot 0.0.1
-Plot your FitBit data!
+Plot your FitBit *Activities* data!
 
 # Quick Start
 
