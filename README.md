@@ -148,13 +148,17 @@ Now I've set a static location for my output, I've copied the bash file to
 my downloads directory when I export an *Activities* report from the FitBit 
 Dashboard. The script deletes the csv file so it leaves everything tidy.
 
-## Questions/reviews
-Feedback to martin.handley@nottingham.ac.uk :)
+## Questions/issues
+Please open an issues report if you're unsure of something/would like new 
+features/have found a bug.
 
-# Known Issues:
+# Known Issues
 If users import monthly data spanning two separate years, e.g., mid December 
 2017 to mid January 2018, the data will be put into the prior year's 
 (i.e., 2017) year-to-date file.
+
+# New features coming soon:
+- Active minutes per week/month
 
 ## Disclaimer
 Don't blame me for anything, especially if you're peeved at the shape of the
