@@ -2,6 +2,8 @@
 # fitplot 0.0.1
 Plot your FitBit data!
 
+# Quick Start
+
 ## What does it do?
 fitplot is a bash script for plotting FitBit Activities data exported from the 
 FitBit Dashboard. It uses gawk/sed to clean the raw data from FitBit and gnuplot 
@@ -53,6 +55,8 @@ The same three graphs will be generated, but this time they display year-to-date
 data:
 
 <img src="Images/calories_ytd.png" width="900">
+
+# Configurations
 
 ## How can I set my goals?
 Edit the following variables in the script:
@@ -133,6 +137,8 @@ how the year-to-date graphs will scale as more data is added. I presume the
 implementation will need altering in a month or two, so abstracting out 
 functionality at this point is probably not the right move.
 
+# Other stuff
+
 ## Miscellaneous
 - The script will delete the input csv file when it is executed.
 - It doesn't matter if you run fitplot on the same data twice, the year-to-date 
@@ -158,10 +164,10 @@ If users import monthly data spanning two separate years, e.g., mid December
 2017 to mid January 2018, the data will be put into the prior year's 
 (i.e., 2017) year-to-date file.
 
-## New features coming soon:
+# New features coming soon:
 - Active minutes per week/month
 
-## Disclaimer
+# Disclaimer
 Don't blame me for anything, especially if you're peeved at the shape of the
 graphs :D.
 
