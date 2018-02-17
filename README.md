@@ -1,5 +1,5 @@
 
-# fitplot 0.0.1
+# fitplot 0.0.1 [BUILT FOR MACOS]
 Plot your FitBit *Activities* data!
 
 fitplot is a bash script for plotting FitBit Activities data exported from the 
