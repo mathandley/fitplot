@@ -136,7 +136,7 @@ functionality at this point is probably not the right move.
 ## Miscellaneous
 - The script will delete the input csv file when it is executed.
 - It doesn't matter if you run fitplot on the same data twice, the year-to-date 
-file doesn't store duplicate entries.
+files won't store duplicate entries.
 
 ## Made for MacOS (because that's what I use)
 Linux/Unix users, I hope it's largely compatible, but I assume some of it won't 
