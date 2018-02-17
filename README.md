@@ -33,11 +33,7 @@ month" is, therefore, a good place to start:
 travelled. If you haven't modified the bash file, these will be saved in 
 your working directory.
 
-<img src="Images/calories.png" width="700">
-
-<img src="Images/steps.png" width="700">
-
-<img src="Images/distance.png" width="700">
+<img src="Images/calories.png" width="900">
 
 Graphs include *mean* and *goal* values. The mean value is plotted as a black 
 line and the top of the purple filled rectangle is the goal. For example, in 
