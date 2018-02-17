@@ -21,7 +21,7 @@ to plot the graphs.
 a csv. You can export up to 31 days of data at any one time. Selecting "Last 
 month" is, therefore, a good place to start: 
 
-<img src="Images/export.png" width="700">
+<img src="Images/export.png" width="900">
 
 (2) Execute fitplot on the downloaded csv file:
 
@@ -37,7 +37,7 @@ your working directory.
 
 Graphs include *mean* and *goal* values. The mean value is plotted as a black 
 line and the top of the purple filled rectangle is the goal. For example, in 
-the calories graph above, my goal is 3042 kcal/day, and my average for January 
+the calories graph above, my goal is 3048 kcal/day, and my average for January 
 was 2930 kcal/day. Goal values can be changed inside the script (see later).
 
 ## Bonus
@@ -52,28 +52,28 @@ year-to-date graphs using the `ytd` flag:
 The same three graphs will be generated, but this time they display year-to-date 
 data:
 
-<img src="Images/calories_ytd.png" width="700">
+<img src="Images/calories_ytd.png" width="900">
 
 ## How can I set my goals?
 Edit the following variables in the script:
 
 ```bash
-4: goalCals=3042    # kcal
+4: goalCals=3048    # kcal
 5: goalSteps=10000    
-6: goalDistance=5   # km
+6: goalDistance=8   # km
 ```
 
 ## Additional settings
-The script needs a location to store output graphs and to maintain the 
-year-to-date csv file. I've set that to the working directory temporarily but 
+The script needs a location to store output graphs and to maintain 
+year-to-date csv files. I've set that to the working directory temporarily but 
 please change it to a static location by amending the following variable:
 
 ```bash
 13: outFP="./" 
 ```
 
-The script also makes use of a single temporary file, which can be named anything
-you like so long as it's accessible. The temporary file is used when 
+The script also makes use of a single temporary file, which can be named 
+anything you like so long as it's accessible. The temporary file is used when 
 copying/sorting/making sense of the questionable csv formatting offered by
 FitBit. Change the filepath if you wish by amending the following variable:
 
@@ -112,7 +112,6 @@ line:
 196: calsPoints=..
 197: calsMean=..
 ```
-
 
 Anyone wishing to change the appearance of graphs thus need only 
 change/remove/add individual components. Ultimately some knowledge of bash and 

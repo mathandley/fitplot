@@ -39,7 +39,7 @@ goalDistance=8  # km
 # yearly data.
 tmpFP="./fitplot.tmp"
 # Output data/graphs stored in this folder.
-outFP="./"         
+outFP="/Users/martinathandley/Documents/Coding/FitBit/Output/"         
 
 # Constants.
 dates=( ["10#01"]="January" ["10#02"]="February" ["10#03"]="March" 
