@@ -2,14 +2,11 @@
 # fitplot 0.0.1
 Plot your FitBit *Activities* data!
 
-# Quick Start
-
-## What does it do?
 fitplot is a bash script for plotting FitBit Activities data exported from the 
 FitBit Dashboard. It uses gawk/sed to clean the raw data from FitBit and gnuplot 
 to plot the graphs.
 
-## What I'm using it with
+# What I'm using it with
 
 | My setup |                                                                                            |
 |----------|--------------------------------------------------------------------------------------------|
@@ -17,6 +14,8 @@ to plot the graphs.
 | OS       | MacOS High Sierra 10.13.2                                                                  |
 | Terminal | Oh-My-Zsh 5.3                                                                              |
 | Software | gawk 4.2.0, gnuplot 5.2 patchlevel 2, coreutils, other built-in tools e.g., sed, cat etc.  |
+
+# Quick Start
 
 ## How do you use it?
 (1) Export an Activities report from https://www.fitbit.com/export/user/data as 
