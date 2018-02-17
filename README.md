@@ -140,7 +140,8 @@ files won't store duplicate entries.
 
 ## Made for MacOS (because that's what I use)
 Linux/Unix users, I hope it's largely compatible, but I assume some of it won't 
-be. Hopefully someone else can turn this into a Window's executable too.
+be. Hopefully someone else can turn this into a Window's executable too if
+there's some interest.
 
 ## How I'm using it
 Now I've set a static location for my output, I've copied the bash file to
