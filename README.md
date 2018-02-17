@@ -94,7 +94,7 @@ script).
 ## Changing the appearance of graphs
 - Purple sucks!
 - Why does each data point have its value stuck on top?
-- That y-data should be plotted on a logarithmic scale goodness me.
+- That y-axis should have a logarithmic scale, goodness me.
 
 Graphs are a personal thing, I know...
 
