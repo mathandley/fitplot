@@ -85,10 +85,11 @@ FitBit. Change the filepath if you wish by amending the following variable:
 The script has practically no safety checking, so if you run fitplot on a csv 
 file, make sure it's a valid *Activities* report exported from the FitBit 
 Dashboard. *Don't* run it on a Body/Foods/Sleep report by accident like I did, 
-because the output is weird and you'll mess up the year-to-date csv file. If you 
-have accidentally run fitplot on the wrong csv file, you get *one* chance to 
-restore your previous data from the `.old` file it creates in the output
-directory (i.e., the working directory if you've not modified the script).
+because the output is weird and you'll mess up the corresponding year-to-date 
+csv file. If you have accidentally run fitplot on the wrong csv file, you get 
+*one* chance to restore your previous data from the `.old` file it creates in 
+the output directory (i.e., the working directory if you've not modified the 
+script).
 
 ## Changing the appearance of graphs
 - Purple sucks!
