@@ -9,12 +9,12 @@ to plot the graphs.
 
 ## What I'm using it with
 
-| My setup |                                                                                |
-|----------|--------------------------------------------------------------------------------|
-| Hardware | MacBook Pro 2017                                                               |
-| OS       | MacOS High Sierra 10.13.2                                                      |
-| Terminal | Oh-My-Zsh 5.3                                                                  |
-| Software | gawk 4.2.0, gnuplot 5.2 patchlevel 2, other built-in tools e.g., sed, cat etc. |
+| My setup |                                                                                            |
+|----------|--------------------------------------------------------------------------------------------|
+| Hardware | MacBook Pro 2017                                                                           |
+| OS       | MacOS High Sierra 10.13.2                                                                  |
+| Terminal | Oh-My-Zsh 5.3                                                                              |
+| Software | gawk 4.2.0, gnuplot 5.2 patchlevel 2, coreutils, other built-in tools e.g., sed, cat etc.  |
 
 ## How do you use it?
 (1) Export an Activities report from https://www.fitbit.com/export/user/data as 
@@ -50,7 +50,7 @@ is updated each time you run fitplot on an exported csv file. You can plot
 year-to-date graphs using the `ytd` flag:
 
 ```bash
-./fitplot --ytd
+./fitplot --ytd=2018
 ```
 
 The same three graphs will be generated, but this time they display year-to-date 
@@ -154,6 +154,11 @@ Dashboard. The script deletes the csv file so it leaves everything tidy.
 
 ## Questions/reviews
 Feedback to martin.handley@nottingham.ac.uk :)
+
+# Known Issues:
+If users import monthly data spanning two separate years, e.g., mid December 
+2017 to mid January 2018, the data will be put into the prior year's 
+(i.e., 2017) year-to-date file.
 
 ## Disclaimer
 Don't blame me for anything, especially if you're peeved at the shape of the

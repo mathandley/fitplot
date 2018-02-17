@@ -5,29 +5,39 @@
 
 # DISCLAIMER OF WARRANTY
 
-# The Software is provided "AS IS" and "WITH ALL FAULTS," without warranty of any 
-# kind, including without limitation the warranties of merchantability, fitness 
-# for a particular purpose and non-infringement. The Licensor makes no warranty 
-# that the Software is free of defects or is suitable for any particular purpose. 
-# In no event shall the Licensor be responsible for loss or damages arising from 
-# the installation or use of the Software, including but not limited to any 
-# indirect, punitive, special, incidental or consequential damages of any character 
-# including, without limitation, damages for loss of goodwill, work stoppage, 
-# computer failure or malfunction, or any and all other commercial damages or 
-# losses. The entire risk as to the quality and performance of the Software is 
-# borne by you. Should the Software prove defective, you and not the Licensor 
-# assume the entire cost of any service and repair.
+# The Software is provided "AS IS" and "WITH ALL FAULTS," without warranty of 
+# any kind, including without limitation the warranties of merchantability, 
+# fitness for a particular purpose and non-infringement. The Licensor makes no 
+# warranty that the Software is free of defects or is suitable for any 
+# particular purpose. In no event shall the Licensor be responsible for loss or 
+# damages arising from the installation or use of the Software, including but 
+# not limited to any indirect, punitive, special, incidental or consequential 
+# damages of any character including, without limitation, damages for loss of 
+# goodwill, work stoppage, computer failure or malfunction, or any and all other 
+# commercial damages or losses. The entire risk as to the quality and 
+# performance of the Software is borne by you. Should the Software prove 
+# defective, you and not the Licensor assume the entire cost of any service and
+# repair.
+
+# Known Issues:
+## If users import monthly data spanning two separate years, e.g., mid December 
+## 2017 to mid January 2018, the data will be put into the prior year's 
+## (i.e., 2017) year-to-date file.
+
+# <TO-DO>:
+## Active minutes per day/week/month
 
 # Settings ---------------------------------------------------------------------
 
 # User goals.
-goalCals=3042    # kcal
+goalCals=3048    # kcal
 goalSteps=10000    
-goalDistance=5   # km
+goalDistance=8  # km
 
 # Filepaths.
-# Needed when cleaning up the raw data from FitBit and appending monthly data to yearly data.
-tmpFP="./fitplot.tmp" 
+# Needed when cleaning up the raw data from FitBit and appending monthly data to 
+# yearly data.
+tmpFP="./fitplot.tmp"
 # Output data/graphs stored in this folder.
 outFP="./"         
 
@@ -65,13 +75,31 @@ monthly()
   rm $tmpFP
 
   # Append monthly data to yearly data.
-  year=$(date +"%Y")
+  # Get date from file.
+  firstDate=$(head -n 1 $1 | gawk 'BEGIN{FS=" "} {print $1}')
+  firstYear=$(gawk 'BEGIN{FS="-"} {print $3}' <<< $firstDate)
+  year=$firstYear
+  # Set year out paths.
   yearOut=$outFP$year".csv"
   yearOld=$outFP$year".old"
 
-  # If previous year-to-date file exists, make one backup before appending new data.
+  # If previous year-to-date file exists:
   if [ -f $yearOut ]
-    then cat $yearOut > $yearOld 
+    then
+      # Make one backup before appending new data.
+      cat $yearOut > $yearOld  
+      
+      # Temporarily remove last line from file in case new data updates it.
+      last=$(tail -n 1 $yearOut)
+      ghead -n -1 $yearOut > $tmpFP
+      cat $tmpFP > $yearOut
+      rm $tmpFP
+      echo $last > $tmpFP
+
+      # Permanently remove last line if new monthly data updates it.
+      gawk 'BEGIN{FS=" "} ;\
+           FNR==NR { a[$1]; next } !($1 in a)' $1 $tmpFP >> $yearOut
+      rm $tmpFP
   fi
 
   cat $1 >> $yearOut
@@ -155,7 +183,7 @@ EOFMarker
 # Year-to-date usage.
 ytd()
 {
-  year=$(date +"%Y")
+  year=$1
   yearOut=$outFP$year".csv"
 
   # Check year-to-date file exists.
@@ -252,13 +280,26 @@ main()
     then 
       echo "Error: incorrect number of arguments specified."
       echo "For monthly graphs use: fitplot.sh <input file>."
-      echo "For year-to-date graphs use: fitplot.sh --ytd."
+      echo "For year-to-date graphs use: fitplot.sh --ytd=<yyyy>."
       exit 1
   fi
 
+  # Just want the year from the ytd flag.
+  for i in "$@"
+    do
+      case $i in
+        --ytd=*|--extension=*)
+        ytdYear="${i#*=}"
+        shift # past argument=value
+        ;;
+        *) # Default options
+        ;;
+      esac
+    done
+
   # Script usage.
-  if [ "$1" == "--ytd" ] 
-    then ytd
+  if [ "$ytdYear" != "" ] 
+    then ytd $ytdYear
   # Check file exists and that it has a .csv extension.
   elif [ -f $1 ] && [ ${1: -4} == ".csv" ]
     then monthly $1
